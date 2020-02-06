@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="text-right d-flex align-items-end justify-content-end" *ngIf="showTable">
+    <button type="submit" class="btn text-dark bg-transparent border" (click)="onNew()"><i class="fa fa-plus"></i></button>
+  </div>
+  <div class="reglist mt-3">
+    <div *ngIf="showTable">
+      <div style="    width: 100%;
+      border-bottom: 1px solid #dddd;
+      padding-bottom: 12px;
+      margin-bottom: 10px;" class="d-flex" *ngFor="let todo of todos ; let i = index">
+        <div style="flex-grow: 1">
+          {{ todo.name }}
+        </div> 
+        <div>
+          <button type="button" class="btn btn-info" (click)="onEdit(i)"><i class="fa fa-pencil"></i></button>
+          <button type="button" class="btn btn-danger" (click)="onDelete(i)"><i class="fa fa-trash"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="regentry" *ngIf="showNew">
+    <form (ngSubmit)="onSave()">
+      <label class="pl-0 col-2 col-form-label">TO DO</label>
+      <div class="form-group row">
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="regModel.name" name="name">
+        </div>
+      </div>
+      <label class="pl-0 col-2 col-form-label">Deskripsi</label>
+      <div class="form-group row">
+        <div class="col-10">
+          <input class="form-control" type="text" [(ngModel)]="regModel.deskripsi" name="deskripsi">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success">{{submitType}}</button>
+      <button type="submit" class="btn btn-primary" (click)="onCancel()">Cancel</button>
+    </form>
+  </div>
+</div>
