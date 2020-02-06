@@ -1,6 +1,7 @@
 const arrDict = ["hot", "dot", "dog", "lot", "log"]
 
 let input = 'hit dig'
+//Sample Input = input
 let arrInput = input.split('')
 let arr = []
 let newArrInput = []
